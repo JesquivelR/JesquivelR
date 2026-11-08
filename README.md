@@ -2,27 +2,21 @@
 
 Ingeniero DevOps en Lima, Perú. Trabajo con infraestructura en AWS escrita en Terraform, contenedores y pipelines de CI/CD. Lo que más me interesa ahora es la seguridad dentro del pipeline, por ejemplo cortar el despliegue cuando aparece un secreto en el código o una imagen con vulnerabilidades críticas. También trabajo bastante con la gestión de secretos e identidades entre el CI, Kubernetes y la nube, sobre todo con Vault.
 
-Aquí están los laboratorios y retos técnicos que he resuelto. Los repositorios incluyen el diagrama de arquitectura y los pasos para desplegar.
+Aquí están los proyectos y laboratorios que he construido. Los repositorios incluyen el diagrama de arquitectura y los pasos para desplegar.
 
 ## Proyectos destacados
 
-### [Plataforma de contenedores en AWS](https://github.com/JesquivelR/Reto)
+### [Plataforma de contenedores en AWS](https://github.com/JesquivelR/plataforma-contenedores-aws)
 
 Dos APIs en FastAPI corren en ECS Fargate detrás de un Application Load Balancer, en subredes privadas con salida por NAT Gateway. Cuando se sube una imagen nueva a ECR, EventBridge invoca una Lambda que actualiza el servicio de ECS. La infraestructura está separada en módulos de Terraform (VPC, IAM, ECS, ALB) con entornos dev y stage, y el estado remoto vive en S3. GitHub Actions construye las imágenes, las publica en ECR y aplica los cambios de infraestructura.
 
 `Terraform` `ECS Fargate` `ALB` `Lambda` `EventBridge` `ECR` `GitHub Actions` `Docker`
 
-### [Plataforma de datos en AWS](https://github.com/JesquivelR/Retos/tree/main/Reto2)
+### [Plataforma de datos en AWS](https://github.com/JesquivelR/plataforma-datos-aws)
 
 Infraestructura para un data lake: buckets de S3 con cifrado, ciclo de vida y logging, un crawler de AWS Glue que cataloga los CSV, una base de datos en RDS cuya contraseña se genera y guarda en Secrets Manager, y autenticación con Cognito.
 
 `Terraform` `S3` `AWS Glue` `RDS` `Cognito` `Secrets Manager`
-
-### [Aplicación Spring Boot en ECS](https://github.com/JesquivelR/Retos/tree/main/Reto1)
-
-Una aplicación Java empaquetada en Docker y desplegada en ECS, con la red, los permisos y el clúster definidos en Terraform y el despliegue automatizado en GitHub Actions.
-
-`Java` `Spring Boot` `Docker` `ECS` `Terraform` `GitHub Actions`
 
 ## Herramientas
 
