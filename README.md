@@ -1,52 +1,56 @@
-# 👋 Welcome to My GitHub Profile!  
+# Jorge Esquivel
 
-Hi! I'm **JesquivelR**, a passionate **DevOps Engineer** focused on creating reliable, scalable, and efficient infrastructure solutions. This space is where I share my journey, projects, and experiments in the exciting world of DevOps.
+Ingeniero DevOps en Lima, Perú. Trabajo con infraestructura en AWS escrita en Terraform, contenedores y pipelines de CI/CD. Lo que más me interesa ahora es la seguridad dentro del pipeline, por ejemplo cortar el despliegue cuando aparece un secreto en el código o una imagen con vulnerabilidades críticas. También trabajo bastante con la gestión de secretos e identidades entre el CI, Kubernetes y la nube, sobre todo con Vault.
 
----
+Aquí están los laboratorios y retos técnicos que he resuelto. Los repositorios incluyen el diagrama de arquitectura y los pasos para desplegar.
 
-## 🛠 **About Me**
+## Proyectos destacados
 
-As a DevOps professional, I specialize in:  
-- **Infrastructure as Code (IaC):** Terraform, CloudFormation.  
-- **Cloud Providers:** AWS, GCP, Azure.  
-- **Containerization:** Docker, Kubernetes.  
-- **CI/CD Pipelines:** Jenkins, GitHub Actions, GitLab CI/CD.  
-- **Monitoring & Logging:** Prometheus, Grafana, ELK Stack.  
+### [Plataforma de contenedores en AWS](https://github.com/JesquivelR/Reto)
 
-I believe in automating everything, collaborating effectively, and building solutions that bridge development and operations seamlessly.  
+Dos APIs en FastAPI corren en ECS Fargate detrás de un Application Load Balancer, en subredes privadas con salida por NAT Gateway. Cuando se sube una imagen nueva a ECR, EventBridge invoca una Lambda que actualiza el servicio de ECS. La infraestructura está separada en módulos de Terraform (VPC, IAM, ECS, ALB) con entornos dev y stage, y el estado remoto vive en S3. GitHub Actions construye las imágenes, las publica en ECR y aplica los cambios de infraestructura.
 
----
+`Terraform` `ECS Fargate` `ALB` `Lambda` `EventBridge` `ECR` `GitHub Actions` `Docker`
 
-## 🚀 **What You'll Find Here**
+### [Pipeline DevSecOps con Jenkins y EKS](https://github.com/JesquivelR/End-to-End-Kubernetes-DevSecOps-Tetris-Project)
 
-In my repositories, you'll discover projects designed to help you practice and grow your DevOps skills, including:  
-- **Terraform Projects:** Building infrastructure on AWS, GCP, and Azure.  
-- **Docker Projects:** Containerizing applications and setting up orchestration.  
-- **CI/CD Pipelines:** Examples of automated workflows using Jenkins, GitHub Actions, and more.  
-- **Monitoring Solutions:** Setting up alerting and logging for real-world use cases.  
-- **Scripts & Utilities:** Useful Bash, Python, and PowerShell scripts for DevOps automation.  
+Laboratorio basado en un proyecto de la comunidad. Terraform crea el servidor de Jenkins y el clúster de EKS. El pipeline pasa el código por SonarQube con quality gate, escanea el repositorio y la imagen con Trivy y despliega la aplicación en Kubernetes.
 
-Each project includes detailed documentation to help you get started quickly.
+`Jenkins` `SonarQube` `Trivy` `Terraform` `Amazon EKS` `Kubernetes`
 
----
+### [Plataforma de datos en AWS](https://github.com/JesquivelR/Retos/tree/main/Reto2)
 
-## 🌱 **Why Follow This Repository?**
+Infraestructura para un data lake: buckets de S3 con cifrado, ciclo de vida y logging, un crawler de AWS Glue que cataloga los CSV, una base de datos en RDS cuya contraseña se genera y guarda en Secrets Manager, y autenticación con Cognito.
 
-If you're a DevOps enthusiast or someone looking to:  
-- Learn and practice hands-on with tools like Terraform, Docker, Kubernetes, and CI/CD platforms.  
-- Explore real-world examples and challenges.  
-- Share and collaborate on exciting projects.  
+`Terraform` `S3` `AWS Glue` `RDS` `Cognito` `Secrets Manager`
 
-Then you're in the right place! 🚀  
+### [Aplicación Spring Boot en ECS](https://github.com/JesquivelR/Retos/tree/main/Reto1)
 
----
+Una aplicación Java empaquetada en Docker y desplegada en ECS, con la red, los permisos y el clúster definidos en Terraform y el despliegue automatizado en GitHub Actions.
 
-## 🤝 **Let's Connect**
+`Java` `Spring Boot` `Docker` `ECS` `Terraform` `GitHub Actions`
 
-Feel free to reach out or connect with me:  
-- **LinkedIn:** [JesquivelR](https://www.linkedin.com/in/esquivelrodriguez123/)  
-- **GitHub:** [@JesquivelR](https://github.com/JesquivelR)  
+## Herramientas
 
----
+| Área | Herramientas |
+|---|---|
+| Nube | AWS (EKS, ECS Fargate, Lambda, VPC, IAM, KMS, S3, RDS PostgreSQL, MSK, Route 53, ACM, WAF, Secrets Manager, SSM), Azure (Entra ID, DNS), Cloudflare (DNS, DMARC) |
+| Infraestructura como código | Terraform con módulos y estado en S3 con bloqueo nativo (`use_lockfile`), parámetros en SSM Parameter Store |
+| Kubernetes | EKS y clústeres on-premise sobre RHEL, Karpenter, Helm, NGINX Ingress detrás de NLB, HPA y PDB, Argo CD |
+| Identidad y secretos | HashiCorp Vault (PKI, cert auth, Kubernetes auth, JWT/OIDC, KV v2, audit log), External Secrets Operator, IRSA, SAML con Entra ID |
+| CI/CD | GitHub Actions (OIDC, acciones fijadas por SHA), Jenkins, Bitbucket Pipelines con runners propios, AWS CodeBuild, AWS CodeArtifact, Dependabot |
+| Seguridad en el pipeline | SonarQube, OWASP Dependency-Check, Trivy, gitleaks, Semgrep, OSV-Scanner |
+| Observabilidad y carga | OpenTelemetry Collector, ClickHouse, Instana, k6 |
+| Contenedores | Docker, Docker Compose |
+| Pruebas automatizadas | Playwright, Vitest, Lighthouse |
+| IA | LiteLLM como gateway hacia la API de Anthropic, con presupuestos y límites por usuario |
+| Análisis de aplicaciones | mitmproxy, jadx, apktool, Ghidra |
+| Sistemas | Linux (RHEL, Debian), Bash, Python, WSL2, cloud-init |
 
-## Thank you for visiting my profile. Let's build something amazing together! 🌟
+## En qué estoy trabajando
+
+Un pipeline de GitHub Actions que se autentica en AWS por OIDC, revisa la infraestructura con Checkov, genera el SBOM de cada imagen con Syft y la firma con Cosign antes de publicarla.
+
+## Contacto
+
+[LinkedIn](https://www.linkedin.com/in/esquivelrodriguez123/)
