@@ -12,12 +12,6 @@ Dos APIs en FastAPI corren en ECS Fargate detrás de un Application Load Balance
 
 `Terraform` `ECS Fargate` `ALB` `Lambda` `EventBridge` `ECR` `GitHub Actions` `Docker`
 
-### [Pipeline DevSecOps con Jenkins y EKS](https://github.com/JesquivelR/End-to-End-Kubernetes-DevSecOps-Tetris-Project)
-
-Laboratorio basado en un proyecto de la comunidad. Terraform crea el servidor de Jenkins y el clúster de EKS. El pipeline pasa el código por SonarQube con quality gate, escanea el repositorio y la imagen con Trivy y despliega la aplicación en Kubernetes.
-
-`Jenkins` `SonarQube` `Trivy` `Terraform` `Amazon EKS` `Kubernetes`
-
 ### [Plataforma de datos en AWS](https://github.com/JesquivelR/Retos/tree/main/Reto2)
 
 Infraestructura para un data lake: buckets de S3 con cifrado, ciclo de vida y logging, un crawler de AWS Glue que cataloga los CSV, una base de datos en RDS cuya contraseña se genera y guarda en Secrets Manager, y autenticación con Cognito.
